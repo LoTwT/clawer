@@ -1,3 +1,5 @@
+# 爬取豆瓣top250单页
+
 import requests
 from lxml import etree
 
