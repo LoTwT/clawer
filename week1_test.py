@@ -44,8 +44,9 @@ def craw_pptdown(ppt_url):
 # 下载单张 ppt 模板
 def download_ppt(ppt_name, pptdown_url):
     pptdown_data = requests.get(pptdown_url, headers=headers).content
+    pptdown_suffix = pptdown_url[pptdown_url.rfind("."):]
 
-    with open(f"./{ppt_name}.pptx", "wb") as f:
+    with open(f"./{ppt_name}.{pptdown_suffix}", "wb") as f:
         f.write(pptdown_data)
 
 
