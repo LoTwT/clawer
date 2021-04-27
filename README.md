@@ -18,6 +18,7 @@
   - 第一周爬虫学习周作业: 抓取 ppt 模板
 - demo5 -- 动态页面爬取
   - 分析法
+  - selenium
 
 ## Learn More
 
