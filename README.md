@@ -19,6 +19,8 @@
 - demo5 -- 动态页面爬取
   - 分析法
   - selenium
+- demo6 -- 模拟登陆
+  - 人工识别验证码
 
 ## Learn More
 
