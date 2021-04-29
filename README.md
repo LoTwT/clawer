@@ -21,6 +21,8 @@
   - selenium
 - demo6 -- 模拟登陆
   - 人工识别验证码
+  - 第三方平台识别
+  - pytesseract (OCR)
 
 ## Learn More
 
