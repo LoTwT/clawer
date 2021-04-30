@@ -23,6 +23,11 @@
   - 人工识别验证码
   - 第三方平台识别
   - pytesseract (OCR)
+- demo7 -- 代理 IP 使用
+  - 初体验
+    - 获取本机 IP
+    - 使用代理 IP
+    - 使用 Selenium 发起使用代理 IP 的请求
 
 ## Learn More
 
