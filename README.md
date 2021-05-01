@@ -28,6 +28,7 @@
     - 获取本机 IP
     - 使用代理 IP
     - 使用 Selenium 发起使用代理 IP 的请求
+  - 代理 IP 池
 
 ## Learn More
 
