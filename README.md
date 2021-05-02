@@ -29,6 +29,10 @@
     - 使用代理 IP
     - 使用 Selenium 发起使用代理 IP 的请求
   - 代理 IP 池
+- week2_test
+  - 第二周爬虫学习周作业: 模拟登陆
+    - requests
+    - selenium
 
 ## Learn More
 
