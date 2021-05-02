@@ -11,10 +11,14 @@ headers = {
 randomCode_url = "https://so.gushiwen.cn/RandCode.ashx"
 login_url = "https://so.gushiwen.cn/user/login.aspx"
 
+# 实例化一个 session
+session_instance = requests.session()
 
 # 下载验证码图片
+
+
 def get_randomCode(randomCode_url):
-    randomCode_response = requests.get(randomCode_url, headers=headers)
+    randomCode_response = session_instance.get(randomCode_url, headers=headers)
 
     with open("./randomCode.png", "wb") as f:
         f.write(randomCode_response.content)
@@ -36,17 +40,15 @@ def post_login_info():
         "denglu": "登录"
     }
 
-    login_response = requests.post(login_url, headers=headers, data=login_data)
-    if login_response.status_code == 200:
+    login_response = session_instance.post(
+        login_url, headers=headers, data=login_data)
+    if "账号管理" in login_response.text:
         print("登录成功")
     else:
         print("登录失败")
 
 
 if __name__ == "__main__":
-    # 实例化一个 session
-    s = requests.session()
-
     # 获得验证码
     get_randomCode(randomCode_url)
 
