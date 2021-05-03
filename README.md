@@ -33,6 +33,8 @@
   - 第二周爬虫学习周作业: 模拟登陆
     - requests
     - selenium
+- demo8 -- 异步爬虫
+  - 同步方式
 
 ## Learn More
 
