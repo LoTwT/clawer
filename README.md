@@ -35,6 +35,9 @@
     - selenium
 - demo8 -- 异步爬虫
   - 同步方式
+  - 多线程、线程池
+    - 基础
+    - 改写 demo8_1
 
 ## Learn More
 

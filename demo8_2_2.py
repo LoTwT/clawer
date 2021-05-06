@@ -1,12 +1,15 @@
 # 异步爬虫
-# https://sc.chinaz.com/jianli/free.html
-# 同步实现
+# 多线程、进程池
+# 改造 demo8_1
 
 
 import requests
 from lxml import etree
 import time
 import os
+import pprint
+from threading import Thread
+from multiprocessing.dummy import Pool
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
@@ -78,18 +81,31 @@ def status_check(response):
     return False
 
 
-def main_loop():
+# 多线程
+def run_threading():
+    threads = []
+    for detail_url in craw_detail_urls(base_url):
+        thread = Thread(target=craw_resume, args=(detail_url,))
+        threads.append(thread)
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+
+
+# 线程池
+def run_pool():
+    with Pool(10) as pool:
+        pool.map(craw_resume, craw_detail_urls(base_url))
+
+
+if __name__ == "__main__":
     try:
         start_time = time.time()
         mk_folder(saveFolder)
-        detail_urls = craw_detail_urls(base_url)
-        for detail_url in detail_urls:
-            craw_resume(detail_url)
+        # run_threading()  # 多线程
+        run_pool()  # 进程池
         end_time = time.time()
         print(f"共用时: {end_time - start_time}")
     except Exception as err:
         print(err)
-
-
-if __name__ == "__main__":
-    main_loop()
