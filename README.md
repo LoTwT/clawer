@@ -44,6 +44,7 @@
 - demo9 -- scrapy
   - 初见
   - 数据解析和分页抓取
+  - 自动爬虫
 
 ## Learn More
 
