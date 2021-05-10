@@ -2,3 +2,5 @@
 /__pycache__
 /randomCode.png
 /ResumeTemplate
+*.csv
+*.txt

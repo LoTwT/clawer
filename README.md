@@ -45,6 +45,10 @@
   - 初见
   - 数据解析和分页抓取
   - 自动爬虫
+  - 数据存储
+    - 命令行 `scrapy crawl laosilaisi -o laosilaici.csv`
+    - pipeline
+    - 注意代码中对应位置需加上 `yield`!!!
 
 ## Learn More
 
