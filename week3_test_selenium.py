@@ -44,7 +44,6 @@ class JDCrawler:
                 print("输入页数大于 100, 默认更改为第 100 页")
 
     # 首页搜索框输入
-
     def searchbar_input(self, good_category):
         self.chrome.find_element_by_xpath(
             '//*[@id="search"]/div/div[@class="form"]/input').send_keys(good_category)
