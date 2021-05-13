@@ -49,6 +49,9 @@
     - 命令行 `scrapy crawl laosilaisi -o laosilaici.csv`
     - pipeline
     - 注意代码中对应位置需加上 `yield`!!!
+- week3_test
+  - 第三周爬虫学习周作业: 爬取京东无人机商品页
+    - selenium
 
 ## Learn More
 
