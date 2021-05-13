@@ -2,46 +2,27 @@ from selenium import webdriver
 from lxml import etree
 import time
 
+# 创建 JDCrawler
+
 
 class JDCrawler:
-    base_url = "https://www.jd.com/"
+    base_url = "https://www.jd.com"
 
-    def __init__(self, good_category, target_page, global_interval=1):
+    def __init__(self, global_interval=1):
+        print("这里是爬取京东商品小助手~~~")
+        # 要搜索的商品名
+        self.good_category = str(input("请输入你要搜索的商品名称: "))
+        # 目标页数
+        self.target_page = int(input("请输入你要爬取的页数: "))
         # 实例化
         self.chrome = webdriver.Chrome()
-        # 要搜索的商品名
-        self.good_category = good_category
-        # 目标页数
-        self.target_page = target_page
         # 全局延时, 根据网络状态自行调整
         self.global_interval = global_interval
-        # 页数检查
-        self.check_page_count(target_page)
 
-    # 建立连接
-    def start(self, url):
-        self.chrome.get(url)
-        print("小爬虫开始工作啦~~~")
-
-    # 关闭浏览器
-    def close(self):
-        self.chrome.close()
-        print("小爬虫下班啦~~~")
-
-    # 页数检查
-    # 京东默认只显示 100 页
-    def check_page_count(self, target_page):
-        # 当输入的页数不是数值
-        if type(target_page) is not int:
-            self.target_page = 1
-            print("输入页数不为数值, 默认更改为第 1 页")
-        else:
-            if target_page < 1:
-                self.target_page = 1
-                print("输入页数小于 0, 默认更改为第 1 页")
-            elif target_page > 100:
-                self.target_page = 100
-                print("输入页数大于 100, 默认更改为第 100 页")
+    # 获取用户输入
+    def get_user_input():
+        good_category = str(input())
+        target_page = int(input)
 
     # 首页搜索框输入
     def searchbar_input(self, good_category):
@@ -67,16 +48,30 @@ class JDCrawler:
             '//*[@id="J_bottomPage"]/span[@class="p-num"]/a[@class="pn-next"]').click()
         time.sleep(self.global_interval)
 
+    def start(self, url):
+        self.chrome.get(url)
+        print("建立连接、发送请求成功~~~小爬虫开始上班啦~~~")
+
+    # 获得响应
+    def get_response(self):
+        return self.chrome.page_source
+
     # 爬取商品列表页 单页 所需数据
-    def crawl_single_page(self):
-        html = etree.HTML(self.chrome.page_source)
+    def crawl_single_page(self, response):
+        html = etree.HTML(response)
+        # 商品列表
         goods_list = html.xpath('//*[@id="J_goodsList"]/ul/li')
+        # 单页商品信息的数组
         goods_info = []
         for good in goods_list:
+            # 商品名称
+            # 此处解析得到的文本数组夹杂数组和无关信息, 简单处理
             good_name = "".join(good.xpath(
                 './div/div[@class="p-name p-name-type-2"]/a/em//text()')).replace("京东超市", "").replace("拍拍", "").lstrip()
+            # 商品价格
             good_price = good.xpath(
                 './div/div[@class="p-price"]/strong/i//text()')[0]
+            # 商家信息
             good_shop = good.xpath(
                 './div/div[@class="p-shop"]/span/a//text()')[0]
             goods_info.append({
@@ -96,26 +91,39 @@ class JDCrawler:
             f.write(
                 "=====================================================================================================================\n")
 
-    # 主函数
+    # 关闭链接、关闭浏览器
+    def close(self):
+        self.chrome.close()
+        print("关闭链接~~~小爬虫下班啦~~~")
+
+    # 运行爬虫
     def run(self):
+        # 建立连接、发送请求
         self.start(self.base_url)
+        # 搜索框输入
         self.searchbar_input(self.good_category)
+        # 搜索跳转
         self.searchbar_click()
 
         for page_count in range(1, self.target_page + 1):
             print(f"第{page_count}页开始下载")
+            # 滚动页面
             self.scroll_to_bottom()
-            self.save_data(self.crawl_single_page())
+            # 获得响应
+            page_response = self.get_response()
+            # 爬取单页数据
+            goods_info = self.crawl_single_page(page_response)
+            # 进行存储
+            self.save_data(goods_info)
+            # 当前页为要爬取的最后一页时, 不进行下一页跳转
             if page_count != self.target_page:
                 self.go_next_page()
             print(f"第{page_count}页下载完成")
 
+        # 关闭链接
         self.close()
 
 
 if __name__ == "__main__":
-    print("这里是爬取京东商品小助手~~~")
-    good_category = str(input("请输入你要搜索的商品名称: "))
-    target_page = int(input("请输入你要爬取的页数: "))
-    jdCrawler = JDCrawler(good_category=good_category, target_page=target_page)
-    jdCrawler.run()
+    jdcrawler = JDCrawler()
+    jdcrawler.run()
