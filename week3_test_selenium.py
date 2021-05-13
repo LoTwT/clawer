@@ -41,7 +41,7 @@ class JDCrawler:
                 print("输入页数小于 0, 默认更改为第 1 页")
             elif target_page > 100:
                 self.target_page = 100
-                print("输入页数小于 100, 默认更改为第 100 页")
+                print("输入页数大于 100, 默认更改为第 100 页")
 
     # 首页搜索框输入
 
