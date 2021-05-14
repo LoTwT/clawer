@@ -52,8 +52,10 @@
 - week3_test
   - 第三周爬虫学习周作业: 爬取京东无人机商品页
     - selenium
-- demo10 -- app爬虫
+- demo10 -- app 爬虫
   - fiddler + android 模拟器
+- demo11 -- JS 逆向
+  - 基础
 
 ## Learn More
 
