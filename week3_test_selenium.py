@@ -10,19 +10,22 @@ class JDCrawler:
 
     def __init__(self, global_interval=1):
         print("这里是爬取京东商品小助手~~~")
+        # 获取用户输入
+        good_category, target_page = self.get_user_input()
         # 要搜索的商品名
-        self.good_category = str(input("请输入你要搜索的商品名称: "))
+        self.good_category = good_category
         # 目标页数
-        self.target_page = int(input("请输入你要爬取的页数: "))
+        self.target_page = target_page
         # 实例化
         self.chrome = webdriver.Chrome()
         # 全局延时, 根据网络状态自行调整
         self.global_interval = global_interval
 
     # 获取用户输入
-    def get_user_input():
-        good_category = str(input())
-        target_page = int(input)
+    def get_user_input(self):
+        good_category = str(input("请输入你要搜索的商品名称: "))
+        target_page = int(input("请输入你要爬取的页数: "))
+        return good_category, target_page
 
     # 首页搜索框输入
     def searchbar_input(self, good_category):

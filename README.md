@@ -51,6 +51,7 @@
     - 注意代码中对应位置需加上 `yield`!!!
 - week3_test
   - 第三周爬虫学习周作业: 爬取京东无人机商品页
+    - requests
     - selenium
 - demo10 -- app 爬虫
   - fiddler + android 模拟器
