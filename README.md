@@ -57,6 +57,17 @@
   - fiddler + android 模拟器
 - demo11 -- JS 逆向
   - 基础
+- crypto_funcs -- 常见加密算法加解密
+  - BASE64
+  - 信息摘要算法
+    - MD5
+    - SHA1
+    - SHA256
+    - SHA512
+  - 对称加密算法
+    - AES
+  - 非对称加密算法
+    - RSA
 
 ## Learn More
 
