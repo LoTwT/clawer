@@ -11,8 +11,11 @@ import hashlib
 
 # MD5
 def encrypt_MD5(data, salt=""):
-    bytes_text = data.encode()
-    hash = hashlib.md5(bytes_text)
+    if type(data) != bytes:
+        encode_bytes = data.encode()
+    else:
+        encode_bytes = data
+    hash = hashlib.md5(encode_bytes)
     hash.update(salt.encode())
     hash_hex = hash.hexdigest()
     return hash_hex
@@ -20,8 +23,11 @@ def encrypt_MD5(data, salt=""):
 
 # SH1
 def encrypt_SHA1(data, salt=""):
-    bytes_text = data.encode()
-    hash = hashlib.sha1(bytes_text)
+    if type(data) != bytes:
+        encode_bytes = data.encode()
+    else:
+        encode_bytes = data
+    hash = hashlib.sha1(encode_bytes)
     hash.update(salt.encode())
     hash_hex = hash.hexdigest()
     return hash_hex
@@ -29,8 +35,11 @@ def encrypt_SHA1(data, salt=""):
 
 # SH256
 def encrypt_SHA256(data, salt=""):
-    bytes_text = data.encode()
-    hash = hashlib.sha256(bytes_text)
+    if type(data) != bytes:
+        encode_bytes = data.encode()
+    else:
+        encode_bytes = data
+    hash = hashlib.sha256(encode_bytes)
     hash.update(salt.encode())
     hash_hex = hash.hexdigest()
     return hash_hex
@@ -38,20 +47,24 @@ def encrypt_SHA256(data, salt=""):
 
 # SH512
 def encrypt_SHA512(data, salt=""):
-    bytes_text = data.encode()
-    hash = hashlib.sha512(bytes_text)
+    if type(data) != bytes:
+        encode_bytes = data.encode()
+    else:
+        encode_bytes = data
+    hash = hashlib.sha512(encode_bytes)
     hash.update(salt.encode())
     hash_hex = hash.hexdigest()
     return hash_hex
 
 
-data = 'Test string!'
-salt = "SALT"
-print(
-    f"data: {data}, md5: {encrypt_MD5(data, salt)}, len: {len(encrypt_MD5(data, salt))}")
-print(
-    f"data: {data}, sha1: {encrypt_SHA1(data, salt)}, len: {len(encrypt_SHA1(data, salt))}")
-print(
-    f"data: {data}, sha256: {encrypt_SHA256(data, salt)}, len: {len(encrypt_SHA256(data, salt))}")
-print(
-    f"data: {data}, sha512: {encrypt_SHA512(data, salt)}, len: {len(encrypt_SHA512(data, salt))}")
+if __name__ == "__main__":
+    data = 'Test string!'
+    salt = "SALT"
+    print(
+        f"data: {data}, md5: {encrypt_MD5(data, salt)}, len: {len(encrypt_MD5(data, salt))}")
+    print(
+        f"data: {data}, sha1: {encrypt_SHA1(data, salt)}, len: {len(encrypt_SHA1(data, salt))}")
+    print(
+        f"data: {data}, sha256: {encrypt_SHA256(data, salt)}, len: {len(encrypt_SHA256(data, salt))}")
+    print(
+        f"data: {data}, sha512: {encrypt_SHA512(data, salt)}, len: {len(encrypt_SHA512(data, salt))}")

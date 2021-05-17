@@ -25,9 +25,12 @@ def encrypt_AES(data, key, iv="", mode=AES.MODE_CBC):
 
 
 # AES 解密, 秘钥 key, 偏移量 iv, 模式默认 CBC
-def AES_Decrypt(data, key, iv="", mode=AES.MODE_CBC):
+def decrypt_AES(data, key, iv="", mode=AES.MODE_CBC):
     # 将加密数据转换位bytes类型数据
-    encode_bytes = base64.decodebytes(data.encode('utf8'))
+    if type(data) != bytes:
+        encode_bytes = base64.decodebytes(data.encode('utf8'))
+    else:
+        encode_bytes = data
     # 生成加密器
     cipher = AES.new(key.encode('utf8'), mode, iv.encode('utf8'))
     # 解密
@@ -40,12 +43,13 @@ def AES_Decrypt(data, key, iv="", mode=AES.MODE_CBC):
     return decrypted_text
 
 
-key = 'handsomehandsome'  # 自己密钥
-data = 'hello maishu!'  # 需要加密的内容
+if __name__ == "__main__":
+    key = 'handsomehandsome'  # 自己密钥
+    data = 'hello maishu!'  # 需要加密的内容
 
-encrypted_text = encrypt_AES(data, key, iv="0102030405060708")
-print(encrypted_text)
-print(AES_Decrypt(encrypted_text, key, iv="0102030405060708"))
+    encrypted_text = encrypt_AES(data, key, iv="0102030405060708")
+    print(encrypted_text)
+    print(decrypt_AES(encrypted_text, key, iv="0102030405060708"))
 
-# 5iiemOvmLraVXcsZqIDs3A==    # 加密后的密文
-# hello maishu!               # 加密后的密文
+    # 5iiemOvmLraVXcsZqIDs3A==    # 加密后的密文
+    # hello maishu!               # 加密后的密文

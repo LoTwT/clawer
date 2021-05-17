@@ -15,8 +15,9 @@ def decrypt_base64(data):
     return b64_decode.decode(encoding="utf-8")
 
 
-data = "Test string!"
-encrypt_result = encrypt_base64(data)
-decrypt_result = decrypt_base64(encrypt_result)
-print(f"加密: {data}, encode: {encrypt_result}")
-print(f"解密: {encrypt_result}, decode: {decrypt_result}")
+if __name__ == "__main__":
+    data = "Test string!"
+    encrypt_result = encrypt_base64(data)
+    decrypt_result = decrypt_base64(encrypt_result)
+    print(f"加密: {data}, encode: {encrypt_result}")
+    print(f"解密: {encrypt_result}, decode: {decrypt_result}")
