@@ -3,7 +3,7 @@
 # 古诗文网 https://so.gushiwen.cn/user/login.aspx
 
 import requests
-from tujian import Tujian
+from phase_1.tujian import Tujian
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36'

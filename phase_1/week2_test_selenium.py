@@ -2,7 +2,7 @@
 # selenium
 
 from selenium import webdriver
-from tujian import Tujian
+from phase_1.tujian import Tujian
 import time
 
 login_url = "https://www.okcis.cn/login/"

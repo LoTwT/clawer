@@ -2,7 +2,7 @@
 # requests
 
 import requests
-from tujian import Tujian
+from phase_1.tujian import Tujian
 
 
 class Login:
