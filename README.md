@@ -2,7 +2,24 @@
 
 爬虫学习。
 
-## 目录
+第一期为零基础学习。代码已全移至 [phase_1](./phase_1) 下。
+第二期为增强学习。代码请见 [phase_2](./phase_2)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [第二期目录](#第二期目录)
+- [第一期目录](#第一期目录)
+- [Learn More](#learn-more)
+
+<!-- /code_chunk_output -->
+
+## 第二期目录
+
+---
+
+## 第一期目录
 
 - demo1 -- 爬取豆瓣电影 top250 单页
 - demo2 -- 爬取豆瓣电影 top250 翻页

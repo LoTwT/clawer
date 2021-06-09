@@ -2,7 +2,7 @@
 # http://jzsc.mohurd.gov.cn/data/company
 
 import requests
-from crypto_funcs.my_aes import decrypt_AES
+from phase_1.crypto_funcs.my_aes import decrypt_AES
 import binascii
 
 base_url = "http://jzsc.mohurd.gov.cn/api/webApi/dataservice/query/comp/list"
