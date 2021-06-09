@@ -17,7 +17,7 @@
 
 ## 第二期目录
 
-- [爬取豆瓣电影排行 top250 单页](/phase_2/douban_movie.single.py)
+- [爬取豆瓣电影排行 top250 单页](./phase_2/douban_movie.single.py)
 
 ---
 
