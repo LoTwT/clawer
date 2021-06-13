@@ -20,6 +20,7 @@
 - [爬取豆瓣电影排行 top250 单页](./phase_2/douban_movie_single.py)
 - [爬取豆瓣电影排行 top250 翻页](./phase_2/douban_movie_flip.py)
 - [爬取斗图吧表情包推荐](./phase_2/doutuba_emoji.py)
+- [爬取 PPT 模板](./phase_2/ppt_template.py)
 
 ---
 
