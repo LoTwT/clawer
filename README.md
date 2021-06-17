@@ -23,6 +23,7 @@
 - [爬取 PPT 模板](./phase_2/ppt_template.py)
 - [小说下载器 (吞噬小说网)](./phase_2/novel_downloader.py)
 - [动态页面爬取 - 分析法](./phase_2/dynamic_ajax_page.py)
+- [动态页面爬取 - Selenium](./phase_2/dynamic_ajax_selenium.py)
 
 ---
 
