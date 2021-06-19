@@ -25,6 +25,7 @@
 - [动态页面爬取 - 分析法](./phase_2/dynamic_ajax_page.py)
 - [动态页面爬取 - Selenium](./phase_2/dynamic_ajax_selenium.py)
 - [模拟登陆 - 人为识别验证码](./phase_2/simulate_register.py)
+- [爬取有声小说 (有声小说吧)](./phase_2/audio_novel.py)
 
 ---
 
