@@ -27,6 +27,7 @@
 - [模拟登陆 - 人为识别验证码](./phase_2/simulate_register.py)
 - [模拟登陆 - 自动识别验证码](./phase_2/simulate_register_auto.py)
 - [爬取有声小说 (有声小说吧)](./phase_2/audio_novel.py)
+- [爬取房多多房屋信息](./phase_2/fangduoduo.py)
 
 ---
 
